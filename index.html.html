@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annamiroh Candra — Perjalanan Ibadah, Direncanakan dengan Amanah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#0F3D39;
+    --deep-2:#0B2E2B;
+    --ivory:#F6F1E4;
+    --ivory-dim:#EEE7D4;
+    --card:#FBF8EF;
+    --gold:#C6963C;
+    --gold-light:#E4C077;
+    --ink:#1B2C29;
+    --ink-soft:#4A5C57;
+    --maroon:#8A3A2E;
+    --line:rgba(27,44,41,0.12);
+    --shadow:0 20px 50px -20px rgba(11,46,43,0.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Amiri',serif;}
+  .mono{font-family:'Space Grotesk',monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:'Space Grotesk',monospace;
+    font-size:12.5px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(246,241,228,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Amiri',serif;font-weight:700;font-size:22px;color:var(--deep);}
+  .logo svg{width:30px;height:30px;flex-shrink:0;}
+  .nav-links{display:flex;gap:32px;font-size:14.5px;font-weight:500;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--deep);}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    background:var(--deep);color:var(--ivory);
+    padding:11px 20px;border-radius:100px;
+    font-size:14px;font-weight:600;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .nav-cta:hover{background:var(--maroon);transform:translateY(-1px);}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:22px;height:2px;background:var(--deep);margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:radial-gradient(120% 140% at 15% -10%, #164A44 0%, var(--deep) 45%, var(--deep-2) 100%);
+    color:var(--ivory);
+    padding:96px 0 110px;
+    overflow:hidden;
+  }
+  .hero-pattern{position:absolute;inset:0;opacity:.16;pointer-events:none;}
+  .hero-inner{position:relative;z-index:2;max-width:760px;}
+  .hero .eyebrow{color:var(--gold-light);}
+  .hero h1{
+    font-size:clamp(36px,5.4vw,60px);
+    line-height:1.1;
+    margin:18px 0 22px;
+    font-weight:700;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-light);}
+  .hero p.lead{
+    font-size:17.5px;
+    color:rgba(246,241,228,0.82);
+    max-width:540px;
+    margin-bottom:36px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;border-radius:100px;
+    font-weight:600;font-size:15px;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold);color:var(--deep-2);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(198,150,60,.5);}
+  .btn-outline{border-color:rgba(246,241,228,0.35);color:var(--ivory);}
+  .btn-outline:hover{background:rgba(246,241,228,0.1);border-color:rgba(246,241,228,0.6);}
+
+  .stats{display:flex;gap:0;flex-wrap:wrap;}
+  .stat{padding-right:36px;margin-right:36px;border-right:1px solid rgba(246,241,228,0.2);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Space Grotesk',monospace;font-size:28px;font-weight:700;color:var(--gold-light);}
+  .stat .lbl{font-size:12.5px;color:rgba(246,241,228,0.65);margin-top:2px;}
+
+  /* ---------- SECTION SHARED ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:600px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,38px);margin-top:14px;font-weight:700;color:var(--deep);}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:15.5px;}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- FASILITAS ---------- */
+  .facilities{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:16px;overflow:hidden;
+  }
+  .facility{
+    background:var(--card);
+    padding:30px 24px;
+    transition:background .25s ease;
+  }
+  .facility:hover{background:var(--ivory-dim);}
+  .facility svg{width:26px;height:26px;color:var(--deep);margin-bottom:16px;}
+  .facility h3{font-size:15.5px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:6px;}
+  .facility p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- PAKET (signature: boarding-pass ticket cards) ---------- */
+  .paket-section{background:var(--ivory-dim);}
+  .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .ticket{
+    display:grid;grid-template-columns:1fr 84px;
+    background:var(--card);
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .ticket:hover{transform:translateY(-6px);box-shadow:0 28px 60px -20px rgba(11,46,43,0.45);}
+  .ticket-main{padding:26px 22px;}
+  .ticket-route{
+    font-family:'Space Grotesk',monospace;
+    font-size:12px;letter-spacing:.08em;
+    color:var(--gold);text-transform:uppercase;font-weight:600;
+    margin-bottom:10px;
+  }
+  .ticket-main h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--deep);margin-bottom:16px;line-height:1.3;}
+  .ticket-row{display:flex;justify-content:space-between;font-size:13px;color:var(--ink-soft);padding:7px 0;border-top:1px dashed var(--line);}
+  .ticket-row:first-of-type{border-top:none;}
+  .ticket-row span:last-child{color:var(--ink);font-weight:600;text-align:right;}
+  .ticket-price{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);}
+  .ticket-price .lbl{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;}
+  .ticket-price .amt{font-family:'Space Grotesk',monospace;font-size:22px;font-weight:700;color:var(--deep);}
+  .ticket-cta{
+    display:inline-block;margin-top:16px;
+    font-size:13.5px;font-weight:700;color:var(--maroon);
+    border-bottom:1.5px solid var(--maroon);padding-bottom:2px;
+  }
+  .ticket-stub{
+    position:relative;
+    background:var(--deep);
+    color:var(--gold-light);
+    display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+    padding:22px 0;
+    border-left:2px dashed rgba(246,241,228,0.3);
+  }
+  .ticket-stub::before,.ticket-stub::after{
+    content:'';position:absolute;left:-11px;width:22px;height:22px;
+    background:var(--ivory-dim);border-radius:50%;
+  }
+  .ticket-stub::before{top:-11px;}
+  .ticket-stub::after{bottom:-11px;}
+  .stub-seat{
+    writing-mode:vertical-rl;
+    font-family:'Space Grotesk',monospace;
+    font-size:11.5px;letter-spacing:.1em;
+    font-weight:700;
+  }
+  .stub-icon svg{width:20px;height:20px;}
+  .packages-more{text-align:center;margin-top:44px;}
+  .link-arrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--deep);font-size:14.5px;}
+  .link-arrow svg{width:16px;height:16px;transition:transform .25s ease;}
+  .link-arrow:hover svg{transform:translateX(4px);}
+
+  /* ---------- TESTIMONI ---------- */
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .tcard{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px 26px;
+    position:relative;
+  }
+  .tcard .quote-mark{font-family:'Amiri',serif;font-size:52px;color:var(--gold);line-height:.5;display:block;margin-bottom:14px;}
+  .tcard p{font-size:14.5px;color:var(--ink-soft);margin-bottom:20px;}
+  .tcard .who{font-size:13.5px;font-weight:700;color:var(--deep);}
+  .tcard .role{font-size:12px;color:var(--ink-soft);}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:linear-gradient(120deg,var(--deep) 0%, var(--deep-2) 100%);
+    border-radius:24px;
+    padding:56px 48px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:32px;flex-wrap:wrap;
+    color:var(--ivory);
+  }
+  .cta-banner h2{font-size:clamp(24px,3vw,32px);max-width:420px;}
+  .cta-banner p{color:rgba(246,241,228,0.75);margin-top:10px;font-size:14.5px;max-width:420px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--deep-2);color:rgba(246,241,228,0.75);padding:64px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+  .footer-logo{font-family:'Amiri',serif;font-weight:700;font-size:22px;color:var(--ivory);margin-bottom:14px;}
+  .footer-grid h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--gold-light);margin-bottom:16px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid li{margin-bottom:10px;font-size:14px;}
+  .footer-grid li a:hover{color:var(--ivory);}
+  .footer-bottom{border-top:1px solid rgba(246,241,228,0.12);padding-top:24px;display:flex;justify-content:space-between;font-size:12.5px;flex-wrap:wrap;gap:10px;color:rgba(246,241,228,0.5);}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:200;
+    width:58px;height:58px;border-radius:50%;
+    background:#1F7A5C;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px -8px rgba(31,122,92,0.6);
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  .wa-float svg{width:28px;height:28px;color:#fff;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 12px 30px -8px rgba(31,122,92,0.6);}
+    50%{box-shadow:0 12px 30px -4px rgba(31,122,92,0.85);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .facilities{grid-template-columns:repeat(2,1fr);}
+    .packages{grid-template-columns:1fr;}
+    .testimonials{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .stats{gap:20px 0;}
+    .stat{padding-right:24px;margin-right:24px;}
+  }
+  @media (max-width:560px){
+    .hero{padding:72px 0 80px;}
+    .footer-grid{grid-template-columns:1fr;}
+    .cta-banner{padding:40px 26px;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M16 2 L19 12 L29 12 L21 18 L24 28 L16 21 L8 28 L11 18 L3 12 L13 12 Z" fill="#C6963C"/></svg>
+      Annamiroh Candra
+    </div>
+    <div class="nav-links">
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#paket">Paket Umrah</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a href="https://wa.me/6282174052000?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20seputar%20paket%20umrah%2Fhaji%20Annamiroh%20Candra" target="_blank" rel="noopener" class="nav-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" opacity=".25"/><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+      Chat WhatsApp
+    </a>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <svg class="hero-pattern" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <pattern id="star8" width="60" height="60" patternUnits="userSpaceOnUse">
+        <g stroke="#E4C077" stroke-width="0.8" fill="none">
+          <path d="M30 6 L36 24 L54 24 L39 35 L45 54 L30 42 L15 54 L21 35 L6 24 L24 24 Z"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="400" height="400" fill="url(#star8)"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <p class="eyebrow reveal in">Travel Umrah & Haji Resmi</p>
+    <h1>Setiap langkah menuju <em>Tanah Suci</em>, kami temani penuh amanah</h1>
+    <p class="lead">Annamiroh Candra mengurus dokumen, akomodasi, dan bimbingan ibadah dari awal keberangkatan sampai kembali ke rumah — supaya Anda bisa fokus beribadah dengan tenang.</p>
+    <div class="hero-ctas">
+      <a href="#paket" class="btn btn-gold">Lihat Paket Umrah</a>
+      <a href="#kontak" class="btn btn-outline">Konsultasi via WhatsApp</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">11+</div><div class="lbl">Tahun melayani jamaah</div></div>
+      <div class="stat"><div class="num">5.200+</div><div class="lbl">Jamaah diberangkatkan</div></div>
+      <div class="stat"><div class="num">100%</div><div class="lbl">Terdaftar resmi Kemenag</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="fasilitas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow" style="color:var(--gold);">Yang kami siapkan</p>
+      <h2>Fasilitas lengkap, tidak ada biaya tersembunyi</h2>
+      <p>Semua sudah termasuk dalam paket — Anda tinggal bawa niat dan perlengkapan pribadi.</p>
+    </div>
+    <div class="facilities reveal">
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h16M6 20V10l6-5 6 5v10M9 20v-6h6v6"/></svg>
+        <h3>Hotel Dekat Masjid</h3>
+        <p>Akomodasi terpilih dalam jarak jalan kaki ke Masjidil Haram & Nabawi.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18M12 3c2.5 3 2.5 15 0 18M12 3c-2.5 3-2.5 15 0 18"/></svg>
+        <h3>Tiket & Visa Umrah</h3>
+        <p>Pengurusan visa dan tiket pesawat PP diurus penuh oleh tim kami.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6l9 4 9-4-9-4zM3 6v12l9 4 9-4V6"/></svg>
+        <h3>Pembimbing Bersertifikat</h3>
+        <p>Ustadz dan muthowif profesional mendampingi setiap rangkaian ibadah.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="12" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        <h3>Perlengkapan Ibadah</h3>
+        <p>Koper, ihram, dan perlengkapan lain disiapkan sebelum keberangkatan.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 17h14M7 17V9a5 5 0 0110 0v8"/></svg>
+        <h3>Konsumsi Terjamin</h3>
+        <p>Menu halal dan bergizi tersedia selama perjalanan berlangsung.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="10" width="14" height="8" rx="1"/><path d="M17 12l4-2v8l-4-2"/></svg>
+        <h3>Transportasi Darat</h3>
+        <p>Bus ber-AC mengantar jamaah antar kota suci dengan nyaman.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Dokumentasi</h3>
+        <p>Momen ibadah Anda diabadikan tim dokumentasi sepanjang perjalanan.</p>
+      </div>
+      <div class="facility">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+        <h3>Cek Status Online</h3>
+        <p>Pantau progres dokumen dan pembayaran kapan saja lewat website.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paket" class="paket-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Jadwal keberangkatan</p>
+      <h2>Pilih paket sesuai waktu dan kebutuhan Anda</h2>
+      <p>Setiap paket ditampilkan seperti tiket keberangkatan — jelas hotel, maskapai, dan sisa kuotanya.</p>
+    </div>
+
+    <div class="packages reveal">
+      <div class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-route">CGK → JED → MED</div>
+          <h3>Umrah Reguler 9 Hari</h3>
+          <div class="ticket-row"><span>Keberangkatan</span><span>12 Agu 2026</span></div>
+          <div class="ticket-row"><span>Hotel Makkah</span><span>Al Marwa Rayhaan</span></div>
+          <div class="ticket-row"><span>Hotel Madinah</span><span>Dar Al Taqwa</span></div>
+          <div class="ticket-row"><span>Maskapai</span><span>Saudia Airlines</span></div>
+          <div class="ticket-price">
+            <div class="lbl">Harga mulai</div>
+            <div class="amt">Rp 28.500.000</div>
+          </div>
+          <a href="paket-detail.html?paket=reguler-9-hari" class="ticket-cta">Lihat Detail & Daftar →</a>
+        </div>
+        <div class="ticket-stub">
+          <div class="stub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l7-2 4-7 2 1-3 7 5-1 2-4 2 1-2 5-9 3-6-1z"/></svg></div>
+          <div class="stub-seat">SISA 8 SEAT</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-route">CGK → JED → IST</div>
+          <h3>Umrah Plus Turki 12 Hari</h3>
+          <div class="ticket-row"><span>Keberangkatan</span><span>20 Sep 2026</span></div>
+          <div class="ticket-row"><span>Hotel Makkah</span><span>Swissotel Makkah</span></div>
+          <div class="ticket-row"><span>Hotel Madinah</span><span>Pullman Zamzam</span></div>
+          <div class="ticket-row"><span>Maskapai</span><span>Turkish Airlines</span></div>
+          <div class="ticket-price">
+            <div class="lbl">Harga mulai</div>
+            <div class="amt">Rp 35.000.000</div>
+          </div>
+          <a href="paket-detail.html?paket=plus-turki-12-hari" class="ticket-cta">Lihat Detail & Daftar →</a>
+        </div>
+        <div class="ticket-stub">
+          <div class="stub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l7-2 4-7 2 1-3 7 5-1 2-4 2 1-2 5-9 3-6-1z"/></svg></div>
+          <div class="stub-seat">SISA 4 SEAT</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-main">
+          <div class="ticket-route">CGK → JED → MED</div>
+          <h3>Umrah Keluarga Awal Tahun</h3>
+          <div class="ticket-row"><span>Keberangkatan</span><span>5 Okt 2026</span></div>
+          <div class="ticket-row"><span>Hotel Makkah</span><span>Royal Majestic</span></div>
+          <div class="ticket-row"><span>Hotel Madinah</span><span>Mirage Al Salam</span></div>
+          <div class="ticket-row"><span>Maskapai</span><span>Garuda Indonesia</span></div>
+          <div class="ticket-price">
+            <div class="lbl">Harga mulai</div>
+            <div class="amt">Rp 26.900.000</div>
+          </div>
+          <a href="paket-detail.html?paket=keluarga-awal-tahun" class="ticket-cta">Lihat Detail & Daftar →</a>
+        </div>
+        <div class="ticket-stub">
+          <div class="stub-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 16l7-2 4-7 2 1-3 7 5-1 2-4 2 1-2 5-9 3-6-1z"/></svg></div>
+          <div class="stub-seat">SISA 12 SEAT</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="packages-more reveal">
+      <a href="#" class="link-arrow">Lihat semua paket umrah <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Cerita jamaah</p>
+      <h2>Dipercaya jamaah dari berbagai kota</h2>
+    </div>
+    <div class="testimonials reveal">
+      <div class="tcard">
+        <span class="quote-mark">"</span>
+        <p>Prosesnya jelas dari awal daftar sampai pulang. Tim selalu sigap kalau ada pertanyaan mendadak.</p>
+        <div class="who">Hj. Siti Marfu'ah</div>
+        <div class="role">Jamaah, Semarang</div>
+      </div>
+      <div class="tcard">
+        <span class="quote-mark">"</span>
+        <p>Pembimbingnya sabar menjelaskan tata cara ibadah, cocok untuk yang baru pertama kali umrah.</p>
+        <div class="who">H. Bambang Priyono</div>
+        <div class="role">Jamaah, Kudus</div>
+      </div>
+      <div class="tcard">
+        <span class="quote-mark">"</span>
+        <p>Hotelnya betul-betul dekat, jalan kaki ke Masjidil Haram nggak sampai 10 menit.</p>
+        <div class="who">Nur Aisyah</div>
+        <div class="role">Jamaah, Magelang</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap">
+    <div class="cta-banner reveal">
+      <div>
+        <h2 class="display">Punya pertanyaan sebelum mendaftar?</h2>
+        <p>Tim kami siap membantu lewat WhatsApp, biasanya balas dalam hitungan menit di jam operasional.</p>
+      </div>
+      <a href="https://wa.me/6282174052000?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20seputar%20paket%20umrah%2Fhaji%20Annamiroh%20Candra" target="_blank" rel="noopener" class="btn btn-gold">Chat Sekarang</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Annamiroh Candra</div>
+        <p style="font-size:13.5px;max-width:260px;">Gedung Contoh, Jl. Singosari Raya, Semarang, Jawa Tengah.</p>
+        <p style="font-size:13.5px;margin-top:10px;">0812 0000 0000<br>info@annamirohcandra.co.id</p>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#">Paket Umrah</a></li>
+          <li><a href="#">Paket Haji Plus</a></li>
+          <li><a href="#">Umrah Private</a></li>
+          <li><a href="#">Tiket Pesawat</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informasi</h4>
+        <ul>
+          <li><a href="#">Metode Pembayaran</a></li>
+          <li><a href="#">Cek Status Transaksi</a></li>
+          <li><a href="#">Blog & Artikel</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jam Operasional</h4>
+        <ul>
+          <li>Senin–Jumat: 08.00–15.00</li>
+          <li>Sabtu: 08.00–14.00</li>
+          <li>Ahad: By Call</li>
+          <li>Call Center: 24 Jam</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Annamiroh Candra — Prototipe desain, bukan travel resmi.</span>
+      <span>Dibuat sebagai contoh struktur & gaya visual.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/6282174052000?text=Assalamualaikum%2C%20saya%20ingin%20bertanya%20seputar%20paket%20umrah%2Fhaji%20Annamiroh%20Candra" target="_blank" rel="noopener" class="wa-float" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" opacity=".2"/><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+</a>
+
+<script>
+  // mobile menu toggle
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute;top:100%;left:0;right:0;flex-direction:column;background:#F6F1E4;padding:20px 28px;gap:18px;border-bottom:1px solid rgba(27,44,41,0.12);';
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

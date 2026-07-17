@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detail Paket — Annamiroh Candra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep:#0F3D39;
+    --deep-2:#0B2E2B;
+    --ivory:#F6F1E4;
+    --ivory-dim:#EEE7D4;
+    --card:#FBF8EF;
+    --gold:#C6963C;
+    --gold-light:#E4C077;
+    --ink:#1B2C29;
+    --ink-soft:#4A5C57;
+    --maroon:#8A3A2E;
+    --line:rgba(27,44,41,0.12);
+    --shadow:0 20px 50px -20px rgba(11,46,43,0.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--ivory);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.55;}
+  h1,h2,h3,.display{font-family:'Amiri',serif;}
+  .mono{font-family:'Space Grotesk',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:'Space Grotesk',monospace;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+
+  header{background:rgba(246,241,228,0.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1080px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Amiri',serif;font-weight:700;font-size:20px;color:var(--deep);}
+  .logo svg{width:26px;height:26px;}
+  .back-link{font-size:14px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;gap:6px;}
+  .back-link:hover{color:var(--deep);}
+  .back-link svg{width:16px;height:16px;}
+
+  .hero-strip{background:var(--deep);color:var(--ivory);padding:44px 0;}
+  .hero-strip .eyebrow{color:var(--gold-light);}
+  .hero-strip h1{font-size:clamp(26px,3.6vw,38px);margin-top:10px;font-weight:700;max-width:640px;}
+  .route-tag{font-family:'Space Grotesk',monospace;font-size:13px;color:rgba(246,241,228,0.7);margin-top:12px;letter-spacing:.06em;}
+
+  .layout{display:grid;grid-template-columns:1.6fr 1fr;gap:44px;padding:56px 0 90px;align-items:start;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:26px;}
+  .card h2{font-size:20px;color:var(--deep);margin-bottom:18px;font-weight:700;}
+
+  .quickfacts{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-bottom:8px;}
+  .qf{border-top:1px dashed var(--line);padding-top:10px;}
+  .qf:nth-child(-n+2){border-top:none;padding-top:0;}
+  .qf .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+  .qf .val{font-weight:700;font-size:14.5px;margin-top:3px;}
+
+  .itinerary-item{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:16px 0;border-top:1px dashed var(--line);}
+  .itinerary-item:first-child{border-top:none;}
+  .day-badge{width:44px;height:44px;border-radius:50%;background:var(--deep);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',monospace;font-weight:700;font-size:13px;}
+  .itinerary-item h3{font-size:15px;margin-bottom:4px;}
+  .itinerary-item p{font-size:13.5px;color:var(--ink-soft);}
+
+  .checklist{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;}
+  .checklist li{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .checklist svg{width:16px;height:16px;color:var(--gold);flex-shrink:0;}
+
+  /* sticky booking card */
+  .booking{position:sticky;top:96px;}
+  .price-box{background:var(--deep);color:var(--ivory);border-radius:16px;padding:26px;margin-bottom:20px;}
+  .price-box .lbl{font-size:12px;color:rgba(246,241,228,0.65);text-transform:uppercase;letter-spacing:.06em;}
+  .price-box .amt{font-family:'Space Grotesk',monospace;font-size:30px;font-weight:700;color:var(--gold-light);margin:4px 0 14px;}
+  .seat-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(246,241,228,0.1);padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:600;}
+  .seat-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-light);}
+
+  .form-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;}
+  .form-card h2{font-size:17px;color:var(--deep);margin-bottom:6px;}
+  .form-card .sub{font-size:13px;color:var(--ink-soft);margin-bottom:20px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+  .field input,.field textarea{
+    width:100%;padding:11px 13px;border-radius:9px;border:1px solid var(--line);
+    background:var(--ivory);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--ink);
+    outline:none;transition:border-color .2s ease;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--gold);}
+  .field textarea{resize:vertical;min-height:70px;}
+  .submit-btn{
+    width:100%;padding:14px;border:none;border-radius:100px;background:var(--gold);color:var(--deep-2);
+    font-weight:700;font-size:14.5px;cursor:pointer;transition:background .25s ease,transform .25s ease;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  .submit-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
+  .form-note{font-size:11.5px;color:var(--ink-soft);margin-top:10px;text-align:center;}
+  .toast{
+    display:none;margin-top:14px;padding:12px 14px;background:#EAF4EE;border:1px solid #BFE0CB;
+    border-radius:10px;font-size:13px;color:#1F5C36;
+  }
+  .toast.show{display:block;}
+
+  footer{background:var(--deep-2);color:rgba(246,241,228,0.6);padding:34px 0;text-align:center;font-size:12.5px;margin-top:20px;}
+
+  @media (max-width:860px){
+    .layout{grid-template-columns:1fr;}
+    .booking{position:static;}
+    .checklist{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <svg viewBox="0 0 32 32" fill="none"><path d="M16 2 L19 12 L29 12 L21 18 L24 28 L16 21 L8 28 L11 18 L3 12 L13 12 Z" fill="#C6963C"/></svg>
+      Annamiroh Candra
+    </div>
+    <a href="annamiroh-candra.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      Kembali ke Beranda
+    </a>
+  </div>
+</header>
+
+<section class="hero-strip">
+  <div class="wrap">
+    <p class="eyebrow">Detail Paket</p>
+    <h1 id="pkg-title">Umrah Reguler 9 Hari</h1>
+    <p class="route-tag" id="pkg-route">CGK → JED → MED</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="layout">
+    <div>
+      <div class="card">
+        <h2>Ringkasan Paket</h2>
+        <div class="quickfacts">
+          <div class="qf"><div class="lbl">Keberangkatan</div><div class="val" id="qf-tanggal">12 Agu 2026</div></div>
+          <div class="qf"><div class="lbl">Maskapai</div><div class="val" id="qf-maskapai">Saudia Airlines</div></div>
+          <div class="qf"><div class="lbl">Hotel Makkah</div><div class="val" id="qf-hotel-makkah">Al Marwa Rayhaan</div></div>
+          <div class="qf"><div class="lbl">Hotel Madinah</div><div class="val" id="qf-hotel-madinah">Dar Al Taqwa</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Rencana Perjalanan</h2>
+        <div id="itinerary-list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Sudah Termasuk</h2>
+        <ul class="checklist">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Tiket pesawat PP</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Visa umrah</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Hotel bintang 4–5</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Konsumsi 3x sehari</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Bus ber-AC selama perjalanan</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Pembimbing & muthowif</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Perlengkapan ibadah</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 13l4 4L19 7"/></svg>Dokumentasi perjalanan</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="booking">
+      <div class="price-box">
+        <div class="lbl">Harga mulai</div>
+        <div class="amt" id="pkg-price">Rp 28.500.000</div>
+        <span class="seat-pill"><span class="dot"></span><span id="pkg-seat">Sisa 8 seat</span></span>
+      </div>
+
+      <div class="form-card">
+        <h2>Daftar / Tanya Paket Ini</h2>
+        <p class="sub">Isi data singkat, kami lanjutkan lewat WhatsApp.</p>
+        <form id="daftar-form">
+          <div class="field">
+            <label for="nama">Nama Lengkap</label>
+            <input type="text" id="nama" required placeholder="Nama sesuai KTP">
+          </div>
+          <div class="field">
+            <label for="wa">Nomor WhatsApp</label>
+            <input type="tel" id="wa" required placeholder="08xxxxxxxxxx">
+          </div>
+          <div class="field">
+            <label for="jumlah">Jumlah Jamaah</label>
+            <input type="number" id="jumlah" min="1" value="1" required>
+          </div>
+          <div class="field">
+            <label for="catatan">Catatan (opsional)</label>
+            <textarea id="catatan" placeholder="Misal: ingin sekamar berempat, ada lansia, dll."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2z" opacity=".25"/><path d="M17.47 14.38c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.02-.22-.53-.44-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.65 1.12 2.83.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.65.21 1.25.18 1.72.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+            Lanjut ke WhatsApp
+          </button>
+          <p class="form-note">Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis.</p>
+          <div class="toast" id="toast">Membuka WhatsApp… jika tidak terbuka otomatis, cek pop-up blocker Anda.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Annamiroh Candra — Prototipe desain, bukan travel resmi.
+</footer>
+
+<script>
+  const WA_NUMBER = "6282174052000"; // ganti dengan nomor WhatsApp asli
+
+  const packages = {
+    "reguler-9-hari": {
+      title: "Umrah Reguler 9 Hari",
+      route: "CGK → JED → MED",
+      tanggal: "12 Agu 2026",
+      maskapai: "Saudia Airlines",
+      hotelMakkah: "Al Marwa Rayhaan",
+      hotelMadinah: "Dar Al Taqwa",
+      price: "Rp 28.500.000",
+      seat: "Sisa 8 seat",
+      itinerary: [
+        ["1","Keberangkatan","Berkumpul di titik meeting point, penerbangan menuju Jeddah."],
+        ["2","Tiba di Madinah","Check-in hotel, istirahat, shalat berjamaah di Masjid Nabawi."],
+        ["3-4","Ziarah Madinah","Kunjungan Raudhah, ziarah Jabal Uhud dan tempat bersejarah lain."],
+        ["5","Menuju Makkah","Miqat di Bir Ali, perjalanan darat ke Makkah, umrah pertama."],
+        ["6-8","Ibadah di Makkah","Shalat berjamaah, tawaf sunnah, ziarah Jabal Nur dan Jabal Rahmah."],
+        ["9","Kepulangan","Check-out hotel, penerbangan kembali menuju Tanah Air."]
+      ]
+    },
+    "plus-turki-12-hari": {
+      title: "Umrah Plus Turki 12 Hari",
+      route: "CGK → JED → IST",
+      tanggal: "20 Sep 2026",
+      maskapai: "Turkish Airlines",
+      hotelMakkah: "Swissotel Makkah",
+      hotelMadinah: "Pullman Zamzam",
+      price: "Rp 35.000.000",
+      seat: "Sisa 4 seat",
+      itinerary: [
+        ["1","Keberangkatan","Penerbangan menuju Jeddah transit melalui Istanbul."],
+        ["2-3","Madinah","Check-in hotel, ibadah di Masjid Nabawi, ziarah kota Madinah."],
+        ["4-7","Makkah","Umrah, ibadah harian, ziarah tempat bersejarah di Makkah."],
+        ["8-10","Istanbul","Mengunjungi Hagia Sophia, Blue Mosque, dan pusat kota tua."],
+        ["11","Waktu bebas","Kesempatan belanja dan istirahat sebelum kepulangan."],
+        ["12","Kepulangan","Penerbangan kembali menuju Tanah Air."]
+      ]
+    },
+    "keluarga-awal-tahun": {
+      title: "Umrah Keluarga Awal Tahun",
+      route: "CGK → JED → MED",
+      tanggal: "5 Okt 2026",
+      maskapai: "Garuda Indonesia",
+      hotelMakkah: "Royal Majestic",
+      hotelMadinah: "Mirage Al Salam",
+      price: "Rp 26.900.000",
+      seat: "Sisa 12 seat",
+      itinerary: [
+        ["1","Keberangkatan","Penerbangan langsung menuju Madinah bersama keluarga."],
+        ["2-3","Madinah","Check-in hotel, ibadah di Masjid Nabawi, waktu santai untuk anak & lansia."],
+        ["4","Menuju Makkah","Miqat, perjalanan darat, umrah pertama bersama pembimbing keluarga."],
+        ["5-8","Makkah","Ibadah harian dengan jadwal ramah keluarga, ziarah tempat bersejarah."],
+        ["9-9","Waktu fleksibel","Hari cadangan untuk istirahat sebelum kepulangan."],
+        ["10","Kepulangan","Check-out hotel, penerbangan kembali menuju Tanah Air."]
+      ]
+    }
+  };
+
+  function getParam(name){
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function render(){
+    const key = getParam("paket") || "reguler-9-hari";
+    const pkg = packages[key] || packages["reguler-9-hari"];
+
+    document.getElementById("pkg-title").textContent = pkg.title;
+    document.getElementById("pkg-route").textContent = pkg.route;
+    document.getElementById("qf-tanggal").textContent = pkg.tanggal;
+    document.getElementById("qf-maskapai").textContent = pkg.maskapai;
+    document.getElementById("qf-hotel-makkah").textContent = pkg.hotelMakkah;
+    document.getElementById("qf-hotel-madinah").textContent = pkg.hotelMadinah;
+    document.getElementById("pkg-price").textContent = pkg.price;
+    document.getElementById("pkg-seat").textContent = pkg.seat;
+
+    const list = document.getElementById("itinerary-list");
+    list.innerHTML = "";
+    pkg.itinerary.forEach(([day, title, desc]) => {
+      const item = document.createElement("div");
+      item.className = "itinerary-item";
+      item.innerHTML = `<div class="day-badge">H${day}</div><div><h3>${title}</h3><p>${desc}</p></div>`;
+      list.appendChild(item);
+    });
+
+    window.__currentPkgTitle = pkg.title;
+  }
+
+  render();
+
+  document.getElementById("daftar-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    const nama = document.getElementById("nama").value.trim();
+    const wa = document.getElementById("wa").value.trim();
+    const jumlah = document.getElementById("jumlah").value;
+    const catatan = document.getElementById("catatan").value.trim();
+    const pkgTitle = window.__currentPkgTitle || "paket umrah";
+
+    let msg = `Assalamualaikum, saya ingin mendaftar/bertanya untuk paket *${pkgTitle}*.\n\n`;
+    msg += `Nama: ${nama}\n`;
+    msg += `No. WhatsApp: ${wa}\n`;
+    msg += `Jumlah Jamaah: ${jumlah}\n`;
+    if (catatan) msg += `Catatan: ${catatan}\n`;
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+  });
+</script>
+
+</body>
+</html>
